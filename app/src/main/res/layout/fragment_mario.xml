@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MarioFragment">
+
+    <ImageView
+        android:id="@+id/accionMario"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/repeticion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="48sp"/>
+    <TextView
+        android:id="@+id/marioConduciendo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#27FF00"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:text="¡Mario Conduciendo!"
+        android:gravity="center"
+        android:textSize="48sp"/>
+    <TextView
+        android:id="@+id/marioBailando"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FF8400"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:text="¡Mario Bailando!"
+        android:gravity="center"
+        android:textSize="48sp"/>
+</FrameLayout>
