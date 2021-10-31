@@ -22,7 +22,7 @@
         android:background="#27FF00"
         android:textColor="@color/white"
         android:visibility="gone"
-        android:text="¡Mario Conduciendo!"
+        android:text="¡Mario estaba borracho conduciendo!"
         android:gravity="center"
         android:textSize="48sp"/>
     <TextView
@@ -32,7 +32,7 @@
         android:background="#FF8400"
         android:textColor="@color/white"
         android:visibility="gone"
-        android:text="¡Mario Bailando!"
+        android:text="¡Mario acaba de Bailar!"
         android:gravity="center"
         android:textSize="48sp"/>
 </FrameLayout>

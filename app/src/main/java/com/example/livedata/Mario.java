@@ -23,17 +23,21 @@ public class Mario {
         if (accion == null || accion.isCancelled()) {
             accion = scheduler.scheduleAtFixedRate(new Runnable() {
                 int marioAccion;
-                int acciones = -1;
+                int repeticiones = -1;
 
                 @Override
                 public void run() {
-                    if (acciones < 0) {
-                        acciones = random.nextInt(3) + 3;
-                        marioAccion = random.nextInt(5)+1;
+                    if (repeticiones < 0) {
+                        repeticiones = random.nextInt(3) + 3;
+                        marioAccion = random.nextInt(4) + 1;
                     }
-                    marioListener.cuandoDeLaOrden("Mario" + marioAccion + ":" + (acciones == 0 ? "marioConduciendo" : acciones == 1 ?  "marioBailando" : accion));
-                    //marioListener.cuandoDeLaOrden("Mario" + marioAccion + ":" + (acciones == 1 ?  "marioBailando" : accion));
-                    acciones--;
+                    if (marioAccion == 1 || marioAccion == 2){
+                        marioListener.cuandoDeLaOrden("Mario" + marioAccion + ":" + (repeticiones == 0 ? "marioBailando" : accion));
+                    } else{
+                        marioListener.cuandoDeLaOrden("Mario" + marioAccion + ":" + (repeticiones == 0 ? "marioConduciendo" : accion));
+                    }
+
+                    repeticiones--;
                 }
             }, 0, 1, SECONDS);
         }

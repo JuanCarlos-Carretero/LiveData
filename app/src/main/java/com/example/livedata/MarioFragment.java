@@ -14,7 +14,6 @@ import com.bumptech.glide.Glide;
 import com.example.livedata.databinding.FragmentMarioBinding;
 
 
-
 public class MarioFragment extends Fragment {
 
     private FragmentMarioBinding binding;
@@ -32,19 +31,20 @@ public class MarioFragment extends Fragment {
 
         marioViewModel.obtenerEjercicio().observe(getViewLifecycleOwner(), new Observer<Integer>() {
             @Override
-            public void onChanged(Integer ejercicio) {
-                Glide.with(MarioFragment.this).load(ejercicio).into(binding.accionMario);
+            public void onChanged(Integer accion) {
+                Glide.with(MarioFragment.this).load(accion).into(binding.accionMario);
             }
         });
 
         marioViewModel.obtenerRepeticion().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(String repeticion) {
-                if(repeticion.equals("marioBailando")){
+
+                if (repeticion.equals("marioBailando") && (MarioViewModel.accion.equals("Mario1") || MarioViewModel.accion.equals("Mario2"))) {
                     binding.marioBailando.setVisibility(View.VISIBLE);
-                }if(repeticion.equals("marioConduciendo")){
+                } else if (repeticion.equals("marioConduciendo") && (MarioViewModel.accion.equals("Mario3") || MarioViewModel.accion.equals("Mario4"))){
                     binding.marioConduciendo.setVisibility(View.VISIBLE);
-                }else {
+                }else{
                     binding.marioBailando.setVisibility(View.GONE);
                     binding.marioConduciendo.setVisibility(View.GONE);
                 }

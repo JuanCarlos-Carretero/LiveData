@@ -11,6 +11,7 @@ import androidx.lifecycle.Transformations;
 
 public class MarioViewModel extends AndroidViewModel {
     Mario mario;
+    static String accion;
 
     LiveData<Integer> marioAccionLiveData;
     LiveData<String> accionesLiveData;
@@ -27,7 +28,7 @@ public class MarioViewModel extends AndroidViewModel {
             @Override
             public LiveData<Integer> apply(String orden) {
 
-                String accion = orden.split(":")[0];
+                accion = orden.split(":")[0];
 
                 if(!accion.equals(marioAccionAnterior)){
                     marioAccionAnterior = accion;
@@ -35,16 +36,17 @@ public class MarioViewModel extends AndroidViewModel {
                     switch (accion) {
                         case "Mario1":
                         default:
+                            accion = "Mario1";
                             imagen = R.drawable.mario;
                             break;
                         case "Mario2":
-                            imagen = R.drawable.mario2;
+                            imagen = R.drawable.mario4;
                             break;
                         case "Mario3":
                             imagen = R.drawable.mario3;
                             break;
                         case "Mario4":
-                            imagen = R.drawable.mario4;
+                            imagen = R.drawable.mario2;
                             break;
                     }
 
